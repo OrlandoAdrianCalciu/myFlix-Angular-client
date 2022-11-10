@@ -1,5 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { UserRegistrationService } from '../fetch-api-data.service';
+import { GenreComponent } from '../genre/genre.component';
+
+import { MatDialog } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { DirectorComponent } from '../director/director.component';
+import { SynopsisComponent } from '../synopsis/synopsis.component';
 
 @Component({
   selector: 'app-movie-card',
@@ -10,7 +16,11 @@ export class MovieCardComponent {
 
   movies: any[] = [];
 
-  constructor(public fetchApiData: UserRegistrationService) { }
+  constructor(
+    public fetchApiData: UserRegistrationService,
+    public dialog: MatDialog,
+    public snackbar: MatSnackBar,
+    ) { }
 
   ngOnInit(): void {
     this.getMovies();
@@ -21,6 +31,37 @@ export class MovieCardComponent {
       this.movies = resp;
       console.log(this.movies);
       return this.movies;
+    });
+  }
+
+  openGenreDialog(name: string, description: string): void {
+    this.dialog.open(GenreComponent, {
+      data: {
+        Name: name,
+        Description: description,
+      },
+      width: '500px',
+    });
+  }
+
+  openDirectorDialog(name: string,  bio: string, birthday: string): void {
+    this.dialog.open(DirectorComponent, {
+      data: {
+        Name: name,
+        Bio: bio,
+        Birth: birthday,
+      },
+      width: '500px',
+    });
+  }
+
+  openSynopsisDialog(title: string, description: string): void {
+    this.dialog.open(SynopsisComponent, {
+      data: {
+        Title: title,
+        Description: description,
+      },
+      width: '500px',
     });
   }
 }
