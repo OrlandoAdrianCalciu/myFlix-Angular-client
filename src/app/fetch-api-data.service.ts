@@ -9,7 +9,7 @@ const apiUrl = 'https://top-movies-api.herokuapp.com/';
 
 const token = localStorage.getItem('token');
 
-const username = localStorage.getItem('username');
+
 @Injectable({
   providedIn: 'root'
 })
@@ -53,6 +53,16 @@ export class UserRegistrationService {
     }).pipe(map(this.extractResponseData), catchError(this.handleError));
   }
 
+  getFavoriteMovies(): Observable<any> {
+    const token = localStorage.getItem('token');
+    const user = localStorage.getItem('user');
+    return this.http
+      .get(`${apiUrl}users/${user}/movies`, {
+        headers: new HttpHeaders({ Authorization: 'Bearer ' + token }),
+      })
+      .pipe(map(this.extractResponseData), catchError(this.handleError));
+  }
+
   public getDirector(directorName: any): Observable<any> {
     return this.http.get(apiUrl + `movies/director/${directorName}`, {
       headers: new HttpHeaders({
@@ -69,22 +79,22 @@ export class UserRegistrationService {
     }).pipe(map(this.extractResponseData), catchError(this.handleError));
   }
 
-  public getUser(): Observable<any> {
+  getUser(): Observable<any> {
     const token = localStorage.getItem('token');
     const username = localStorage.getItem('user');
 
-    return this.http.get(apiUrl + `users/${username}`, {
+    return this.http.get(`${apiUrl}users/${username}`, {
       headers: new HttpHeaders({
         Authorization: 'Bearer ' + token,
       }),
     }).pipe(map(this.extractResponseData), catchError(this.handleError));
   }
 
-  public addFavoriteMovie(movieID: any): Observable<any> {
+  public addFavoriteMovie(movieID: string): Observable<any> {
     const token = localStorage.getItem('token');
     const username = localStorage.getItem('user');
 
-    return this.http.post(apiUrl + `users/${username}/movies/${movieID}`, {}, {
+    return this.http.post(apiUrl + `users/${username}/movies/${movieID}`, null, {
       headers: new HttpHeaders({
         Authorization: 'Bearer ' + token,
       }),
@@ -139,3 +149,4 @@ export class UserRegistrationService {
       'Something bad happened; please try again later.');
   }
 }
+
