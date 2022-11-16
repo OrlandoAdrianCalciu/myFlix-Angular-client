@@ -20,6 +20,7 @@ export class UserLoginFormComponent implements OnInit {
 
   @Input() userCredentials = { Username: '', Password: '' };
 
+  /** @constructor */
   constructor(
     public fetchApiData: UserRegistrationService,
     public dialogRef: MatDialogRef<UserLoginFormComponent>,

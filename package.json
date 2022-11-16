@@ -2,6 +2,7 @@
   "name": "my-flix-angular-client",
   "version": "0.0.0",
   "scripts": {
+  "docs": "npx typedoc --out docs src",
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
@@ -22,6 +23,7 @@
     "@angular/router": "^14.2.0",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
+    "typedoc": "^0.23.21",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {

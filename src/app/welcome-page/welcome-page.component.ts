@@ -11,6 +11,7 @@ import { UserLoginFormComponent } from '../user-login-form/user-login-form.compo
 export class WelcomePageComponent {
   title = 'myFlix-Angular-client';
 
+  /** @constructor */
 constructor(public dialog: MatDialog) {}
 //This is the function that will open the dialog when the signup button is clicked
 openUserRegistrationDialog(): void {

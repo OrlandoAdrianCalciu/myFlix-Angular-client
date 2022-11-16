@@ -19,6 +19,12 @@ export class UserRegistrationService {
   constructor(private http: HttpClient) {
   }
   // Making the api call for the user registration endpoint
+  /**
+   * @service POST to an API endpoint to register new users
+   * @param {any} userData 
+   * @returns a new user
+   * @function userRegistration
+   */
   public userRegistration(userDetails: any): Observable<any> {
     console.log(userDetails);
     return this.http.post(apiUrl + 'users', userDetails).pipe(
@@ -26,6 +32,12 @@ export class UserRegistrationService {
     );
   }
 
+  /**
+   * @service POST to an API endpoint to login a user
+   * @param {any} userData
+   * @returns a user object
+   * @function userLogin
+   */
   public userLogin(userDetails: any): Observable<any> {
     console.log(userDetails);
     return this.http.post(apiUrl + 'login', userDetails).pipe(
@@ -33,6 +45,11 @@ export class UserRegistrationService {
     );
   }
 
+  /**
+   * @service GET to an API endpoint to get all movies
+   * @returns an array of all movies
+   * @function getAllMovies
+   */
   public getAllMovies(): Observable<any> {
     const token = localStorage.getItem('token');
 
@@ -43,6 +60,12 @@ export class UserRegistrationService {
     }).pipe(map(this.extractResponseData), catchError(this.handleError));
   }
 
+  /**
+   * @service GET to an API endpoint to get a movie by title
+   * @param {string} Title
+   * @returns an array of movie objects
+   * @function getMovie
+   */
   public getMovie(Title: any): Observable<any> {
     const token = localStorage.getItem('token');
 
@@ -63,6 +86,12 @@ export class UserRegistrationService {
       .pipe(map(this.extractResponseData), catchError(this.handleError));
   }
 
+  /**
+   * @service GET to an API endpoint to get director info
+   * @param {string} director
+   * @returns a an array of movie objects
+   * @function getDirector
+   */
   public getDirector(directorName: any): Observable<any> {
     return this.http.get(apiUrl + `movies/director/${directorName}`, {
       headers: new HttpHeaders({
@@ -71,6 +100,12 @@ export class UserRegistrationService {
     }).pipe(map(this.extractResponseData), catchError(this.handleError));
   }
 
+  /**
+   * @service GET to an API endpoint to get genre info
+   * @param {string} genre
+   * @returns a an array of movie objects 
+   * @function getGenre
+   */
   public getGenre(genreName: any): Observable<any> {
     return this.http.get(apiUrl + `movies/genre/${genreName}`, {
       headers: new HttpHeaders({
@@ -79,6 +114,11 @@ export class UserRegistrationService {
     }).pipe(map(this.extractResponseData), catchError(this.handleError));
   }
 
+   /**
+   * @service GET to an API endpoint to get a specific user
+   * @returns a user object in json format
+   * @function getUser
+   */
   getUser(): Observable<any> {
     const token = localStorage.getItem('token');
     const username = localStorage.getItem('user');
@@ -90,6 +130,11 @@ export class UserRegistrationService {
     }).pipe(map(this.extractResponseData), catchError(this.handleError));
   }
 
+  /**
+   * @service POST to an API endpoint to add a movie to a user's favorites list
+   * @returns a user object in json format
+   * @function addFavorite
+   */
   public addFavoriteMovie(movieID: string): Observable<any> {
     const token = localStorage.getItem('token');
     const username = localStorage.getItem('user');
@@ -101,6 +146,11 @@ export class UserRegistrationService {
     }).pipe(map(this.extractResponseData), catchError(this.handleError));
   }
 
+  /**
+   * @service PUT to an API endpoint to update a user's details
+   * @returns a user object in json format
+   * @function editUser
+   */
   public editUser(updateDetails: any): Observable<any> {
     const token = localStorage.getItem('token');
     const username = localStorage.getItem('user');
@@ -111,6 +161,11 @@ export class UserRegistrationService {
     })
   }
 
+   /**
+   * @service DELETE to an API endpoint to remove a movie from a user's favorites list
+   * @returns a user object in json format
+   * @function addFavorite
+   */
   public removeFavoriteMovie(movieID: any): Observable<any> {
     const token = localStorage.getItem('token');
     const username = localStorage.getItem('user');
@@ -121,6 +176,11 @@ export class UserRegistrationService {
     }).pipe(map(this.extractResponseData), catchError(this.handleError));
   }
 
+  /**
+   * @service DELETE to an API endpoint to delete a user
+   * @returns success message
+   * @function deleteUser
+   */
   deleteUser(): Observable<any> {
     const token = localStorage.getItem('token');
     const username = localStorage.getItem('user');

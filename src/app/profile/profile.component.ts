@@ -16,6 +16,7 @@ import { Router } from '@angular/router';
 export class ProfileComponent implements OnInit {
   user: any = {};
 
+  /** @constructor */
   constructor(
     public fetchApiData: UserRegistrationService,
     public dialog: MatDialog,

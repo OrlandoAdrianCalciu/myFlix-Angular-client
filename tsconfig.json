@@ -1,4 +1,3 @@
-/* To learn more about this file see: https://angular.io/config/tsconfig. */
 {
   "compileOnSave": false,
   "compilerOptions": {
@@ -18,15 +17,26 @@
     "importHelpers": true,
     "target": "es2020",
     "module": "es2020",
-    "lib": [
-      "es2020",
-      "dom"
-    ]
+    "lib": ["es2020", "dom"]
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
     "strictTemplates": true
+  },
+  "typedocOptions": {
+    "entryPoints": [
+      "src/app/welcome-page/welcome-page.component.ts",
+      "src/app/fetch-api-data.service.ts",
+      "src/app/main-view/main-view.component.ts",
+      "src/app/user-profile/user-profile.component.ts",
+      "src/app/movie-card/movie-card.component.ts",
+      "src/app/user-profile/user-profile.component.ts",
+      "src/app/user-registration/user-registration.component.ts",
+      "src/app/user-login/user-login.component.ts",
+      "src/app/navbar/navbar.component.ts"
+    ],
+    "out": "docs"
   }
 }

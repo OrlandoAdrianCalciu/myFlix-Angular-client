@@ -17,6 +17,7 @@ export class MovieCardComponent {
   movies: any[] = [];
   favoriteMovies: any[] = [];
 
+  /** @constructor */
   constructor(
     public fetchApiData: UserRegistrationService,
     public dialog: MatDialog,
