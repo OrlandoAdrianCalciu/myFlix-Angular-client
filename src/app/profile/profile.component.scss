@@ -1,0 +1,21 @@
+.user-profile-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 40px;
+  }
+  
+  .user-profile-card {
+    margin-top: 50px;
+    display: flex;
+    padding: 30px;
+    flex-direction: column;
+    box-shadow: 10px 5px 5px #00b4d8;
+    background-color: #caf0f8;
+  }
+  
+  .user-profile-card-header {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+  }

@@ -1,0 +1,29 @@
+$blue: #0077b6;
+
+.welcome-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 40px;
+  }
+
+  .welcome-card {
+    margin-top: 80px;
+    display: flex;
+    padding: 30px;
+    flex-direction: column;
+    box-shadow: 10px 5px 5px #00b4d8;
+    background-color: #caf0f8;
+  }
+
+  button {
+    border-color: $blue;
+  color: #000;
+  box-shadow: 0 0 40px 40px $blue inset, 0 0 0 0 $blue;
+  transition: all 150ms ease-in-out;
+  
+  &:hover {
+    box-shadow: 0 0 10px 0 $blue inset, 0 0 10px 4px $blue;
+    transform: scale(1.1);
+  }
+  }
