@@ -9,6 +9,8 @@ const apiUrl = 'https://top-movies-api.herokuapp.com/';
 
 const token = localStorage.getItem('token');
 
+const user = localStorage.getItem('user');
+
 
 @Injectable({
   providedIn: 'root'
